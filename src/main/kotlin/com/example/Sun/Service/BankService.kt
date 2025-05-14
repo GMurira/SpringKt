@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service
 class BankService(private val dataSource: BankDataSouce) {
     fun getBanks(): Collection<Bank> = dataSource.retrieveBanks()
 
+    fun getBank( accountNumber: String): Bank = dataSource.retrieveBank(accountNumber)
 }

@@ -15,6 +15,10 @@ class MockBankDataSoure: BankDataSouce {
         Bank("1234", 8.0, 3)
     )
     override fun retrieveBanks(): Collection<Bank> {
-        return emptyList()
+        return banks
+    }
+
+    override fun retrieveBank(accountNumber: String): Bank {
+        return banks.firstOrNull(){ it.accountNumber == accountNumber} ?: throw NoSuchElementException("Could Not find a bank with account number $accountNumber")
     }
 }
